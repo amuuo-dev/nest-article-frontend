@@ -1,3 +1,5 @@
+import PeopleSaying from "./PeopleSaying";
+import SomeArticles from "./SomeArticles";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
@@ -70,6 +72,8 @@ const Hero = () => {
         <h1 className="text-center text-2xl tracking-wider py-2 px-12">
           Some Articles Written By Our Authors
         </h1>
+        <SomeArticles />
+        <PeopleSaying />
       </div>
     </div>
   );
