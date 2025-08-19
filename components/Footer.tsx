@@ -23,7 +23,7 @@ const Footer = () => {
           </Button>
         </div>
       </div>
-      <h1 className="text-center font-semibold">
+      <h1 className="text-center font-semibold my-6">
         Built by{" "}
         <Link
           href="https://www.linkedin.com/in/anthony-muuo/"

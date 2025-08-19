@@ -11,7 +11,8 @@ const Header = () => {
             <span className="text-amber-500">Zone</span>
           </h1>
         </Link>
-        <div className="flex gap-8">
+
+        <div className="hidden md:flex gap-8">
           <Link href="/login">
             <Button className="hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
               Login

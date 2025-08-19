@@ -39,11 +39,13 @@ const SomeArticles = () => {
           key={article.id}
           className="border border-amber-200 bg-white shadow-md rounded-2xl p-5 hover:shadow-lg transition"
         >
-          <h1 className="text-lg font-semibold text-gray-800 capitalize">
+          <h1 className="md:text-lg text-base font-semibold text-gray-800 capitalize">
             {article.title}
           </h1>
-          <p className="text-gray-600 mb-3">{article.description}</p>
-          <div className="text-sm text-gray-500 mb-4">
+          <p className="text-gray-600 md:mb-3 mb-1.5 md:text-base text-sm">
+            {article.description}
+          </p>
+          <div className="md:text-sm text-xs text-gray-500 mb-4">
             ✍️ Written by{" "}
             <span className="font-medium text-gray-700 capitalize">
               {article.author.username}
@@ -52,17 +54,19 @@ const SomeArticles = () => {
           {/* comment */}
 
           <div className="mt-4 border-t pt-3">
-            <h2 className="text-sm font-semibold text-gray-700 mb-1">
+            <h2 className="md:text-sm text-xs font-semibold text-gray-700 mb-1">
               Comments
             </h2>
             {article.comments.length === 0 ? (
-              <p className="text-gray-500 text-sm">No comments yet!</p>
+              <p className="text-gray-500 md:text-sm text-xs">
+                No comments yet!
+              </p>
             ) : (
               <ul className="space-y-2">
                 {article.comments.slice(0, 1).map((comment) => (
                   <li
                     key={comment.id}
-                    className="text-sm text-gray-700 bg-gray-50 rounded-lg p-2"
+                    className="md:text-sm text-xs text-gray-700 bg-gray-50 rounded-lg md:p-2 p-1"
                   >
                     <p>{comment.body}</p>
                   </li>

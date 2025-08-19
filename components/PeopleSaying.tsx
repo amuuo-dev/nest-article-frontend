@@ -34,7 +34,7 @@ const users = [
 const PeopleSaying = () => {
   return (
     <div className="py-8 px-12 bg-amber-50 pt-4">
-      <h1 className="text-center text-2xl tracking-wider py-2 px-12">
+      <h1 className="text-center md:text-2xl text-base md:tracking-wider tracking-tight md:py-2 py-1">
         What are People Saying ?
       </h1>
 
@@ -59,10 +59,13 @@ const PeopleSaying = () => {
               key={user._id}
               className="basis-1/2 md:basis-1/3 lg:basis-1/4"
             >
-              <div className="p-4 border border-gray-200 rounded-xl shadow-sm h-[120px] flex items-center">
-                <p className="text-gray-600 text-sm">
+              <div className="p-4 border border-gray-200 rounded-xl shadow-sm md:h-[120px] h-[160px] flex items-center">
+                <p className="text-gray-600 md:text-sm text-xs">
                   &quot;{user.testimonial}&quot;
-                  <span className="font-semibold"> – {user.name}</span>
+                  <span className="md:font-semibold font-medium">
+                    {" "}
+                    – {user.name}
+                  </span>
                 </p>
               </div>
             </CarouselItem>
