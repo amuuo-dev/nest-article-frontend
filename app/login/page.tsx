@@ -9,6 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import { AlertCircleIcon } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import useAuth from "@/store/useAuth";
 
 type LoginUser = {
   email: string;
@@ -38,6 +39,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const { setUser } = useAuth();
+
   const router = useRouter();
 
   const { mutate, isPending } = useMutation({
@@ -48,7 +51,8 @@ const Login = () => {
       toast.error("error loggin you in...");
     },
     onSuccess: (data) => {
-      localStorage.setItem("token", data.token);
+      const { token, ...user } = data;
+      setUser(user, token);
       toast.success("successfully logged you in");
       router.push("/articles");
     },
