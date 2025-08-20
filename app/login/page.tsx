@@ -22,7 +22,7 @@ const Login = () => {
           </div>
           <div className="py-2">
             <Label className="md:text-base text-sm font-medium">Password</Label>
-            <Input className="focus:ring-amber-200" />
+            <Input className="focus:ring-amber-200" type="password" />
           </div>
           <Button className="w-full bg-amber-500 hover:bg-amber-600 hover:text-white cursor-pointer">
             Create account

@@ -4,6 +4,7 @@ import "./globals.css";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,18 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
           </div>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
         </ReactQueryProvider>
       </body>
     </html>
