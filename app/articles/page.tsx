@@ -1,10 +1,13 @@
+import ProtectedRoute from "@/components/ProtectedRoute";
 import React from "react";
 
 const ArticlesPage = () => {
   return (
-    <div>
-      <h1>this is the article page</h1>
-    </div>
+    <ProtectedRoute>
+      <div>
+        <h1>this is the article page</h1>
+      </div>
+    </ProtectedRoute>
   );
 };
 

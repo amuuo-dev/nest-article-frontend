@@ -126,7 +126,10 @@ const SignUp = () => {
               type="password"
             />
           </div>
-          <Button className="w-full bg-amber-500 hover:bg-amber-600 hover:text-white cursor-pointer">
+          <Button
+            className="w-full bg-amber-500 hover:bg-amber-600 hover:text-white cursor-pointer"
+            disabled={isPending}
+          >
             {isPending ? "Creating Account...." : " Create account"}
           </Button>
         </form>
