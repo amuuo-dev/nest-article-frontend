@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 const Footer = () => {
   return (
     <div className="">
-      <div className="md:py-8 md:px-12 py-4 px-6 flex justify-between">
+      <div className="md:py-8 md:px-12 py-4 px-2 flex justify-between">
         <div>
           <Link href="/">
             <h1 className="md:text-2xl text-lg font-semibold hover:bg-amber-100 px-2 py-1 rounded-md cursor-pointer">

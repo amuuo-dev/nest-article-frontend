@@ -12,7 +12,7 @@ import {
 
 const Header = () => {
   return (
-    <div className="bg-white md:py-8 md:px-12 py-4 px-6">
+    <div className="bg-white md:py-8 md:px-12 py-4 px-2">
       <header className="flex justify-between">
         <Link href="/">
           <h1 className="text-2xl font-semibold hover:bg-amber-100 px-2 py-1 rounded-md cursor-pointer">
