@@ -25,6 +25,11 @@ async function createUser(user: UserProp) {
     body: JSON.stringify(user),
   });
   const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Failed to create account");
+  }
+
   return data.user;
 }
 
