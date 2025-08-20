@@ -15,6 +15,8 @@ type AuthStoreProps = {
   token: string | null;
   setUser: (user: UserProps, token: string) => void;
   logOut: () => void;
+  _hasHydrated: boolean;
+  setHasHydrated: (state: boolean) => void;
 };
 
 const authStore: StateCreator<AuthStoreProps> = (set) => ({
@@ -26,8 +28,17 @@ const authStore: StateCreator<AuthStoreProps> = (set) => ({
   logOut: () => {
     set(() => ({ user: null, token: null }));
   },
+  _hasHydrated: false,
+  setHasHydrated: (state) => set({ _hasHydrated: state }),
 });
 
-const useAuth = create(persist(authStore, { name: "artizone-auth" }));
+const useAuth = create(
+  persist(authStore, {
+    name: "artizone-auth",
+    onRehydrateStorage: () => (state) => {
+      state?.setHasHydrated(true);
+    },
+  })
+);
 
 export default useAuth;
