@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { Menu } from "lucide-react";
@@ -9,8 +10,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import useAuth from "@/store/useAuth";
+import NavLink from "./NavLink";
 
 const Header = () => {
+  const { token } = useAuth();
   return (
     <div className="bg-white md:py-8 md:px-12 py-4 px-2">
       <header className="flex justify-between">
@@ -22,16 +26,22 @@ const Header = () => {
         </Link>
 
         <div className="hidden md:flex gap-8">
-          <Link href="/login">
-            <Button className="hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
-              Login
-            </Button>
-          </Link>
-          <Link href="/signup">
-            <Button className="hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
-              Sign Up
-            </Button>
-          </Link>
+          {token ? (
+            <NavLink href="/articles">Articles</NavLink>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button className="hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
+                  Login
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button className="hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
+                  Sign Up
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
         {/* mobile */}
         <div className="md:hidden">
@@ -47,16 +57,22 @@ const Header = () => {
                 </SheetDescription>
               </SheetHeader>
               <div className="flex flex-col gap-4 items-center justify-center">
-                <Link href="/login" className="w-full px-2">
-                  <Button className="w-full hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/signup" className="w-full px-2">
-                  <Button className="w-full hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
-                    Sign Up
-                  </Button>
-                </Link>
+                {token ? (
+                  <NavLink href="/articles">Articles</NavLink>
+                ) : (
+                  <>
+                    <Link href="/login" className="w-full px-2">
+                      <Button className="w-full hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
+                        Login
+                      </Button>
+                    </Link>
+                    <Link href="/signup" className="w-full px-2">
+                      <Button className="w-full hover:bg-amber-100 px-12 py-2 rounded-md cursor-pointer flex-1 border border-amber-300 hover:text-amber-500">
+                        Sign Up
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </SheetContent>
           </Sheet>
